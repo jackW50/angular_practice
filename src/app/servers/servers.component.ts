@@ -8,23 +8,40 @@ import { Component, OnInit } from '@angular/core';
 export class ServersComponent implements OnInit {
 
   allowNewServer = false;
+  allowUsernameClick = false;
   serverCreationStatus = 'No server was created!';
   serverName = 'TestServer';
+  username = '';
+  usernameStatus = '';
 
   constructor() { 
     setTimeout(() => {
       this.allowNewServer = true;
-    }, 2000)
+    }, 2000);
   }
 
   ngOnInit() {
   }
 
   onCreateServer() {
-    this.serverCreationStatus = 'Server was created';
+    this.serverCreationStatus = 'Server was created: ' + this.serverName;
   }
 
-  onUpdateServerName(event: any) {
+  onUsernameInsert() {
+    console.log('onUsernameInsert was called.')
+    if(this.username !== '') {
+      this.allowUsernameClick = true;
+    } else {
+      this.allowUsernameClick = false;
+    }
+  }
+
+  onUsernameClick() {
+    this.usernameStatus = `Hi, ${this.username} ;-)`;
+    this.username = '';
+  }
+
+  onUpdateServerName(event: Event) {
     this.serverName = (<HTMLInputElement>event.target).value;
   }
 
