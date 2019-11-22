@@ -12,14 +12,13 @@
     type="text"
     class="form-control"
     [(ngModel)]="username"
-    (input)="onUsernameInsert($event)"
 >
 <button
     class="btn btn-primary"
-    [disabled]="!allowUsernameClick"
-    (click)="onUsernameClick()"
->Add Username</button>
-<p>{{ usernameStatus }}</p>
+    [disabled]="username === ''"
+    (click)="username = ''"
+>Reset Username</button>
+<p>{{ username }}</p>
 <!--<p>{{ serverName }}</p>-->
 
 <button
