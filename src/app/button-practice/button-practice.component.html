@@ -1,0 +1,16 @@
+<br>
+<br>
+<span>----------------------------------------</span>
+<br>
+<button (click)="buttonClick()">Click Me!</button>
+<p *ngIf="displayP">
+  button-practice works!
+</p>
+<br>
+<ul *ngFor="let date of listItems; let i = index">
+  <li [ngStyle]="i > 3 ? backgroundColor: green">
+    {{i + 1}}: {{date.toLocaleTimeString()}}
+  </li>
+</ul>
+
+
