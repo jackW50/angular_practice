@@ -8,7 +8,10 @@
 </p>
 <br>
 <ul *ngFor="let date of listItems; let i = index">
-  <li [ngStyle]="i > 3 ? backgroundColor: green">
+  <li 
+    [ngStyle]="{backgroundColor: i > 3 ? 'grey' : ''}"
+    [ngClass]="{'white-text' : i > 3 }"
+    >
     {{i + 1}}: {{date.toLocaleTimeString()}}
   </li>
 </ul>
